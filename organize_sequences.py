@@ -18,7 +18,8 @@ December 19, 2012
 """
 
 # get a list of all files 
-path = 'S1204413.NIU/SEQUENCES/'
+#path = 'S1204413.NIU/SEQUENCES/'
+path = sys.argv[1]
 filelist = os.listdir(path)
 # alphabetize the list of filenames
 filelist.sort()

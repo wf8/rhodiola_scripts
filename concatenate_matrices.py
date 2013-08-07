@@ -38,6 +38,8 @@ gap_ITS = ''
 while i < 681:
 	gap_ITS = gap_ITS + '-'
 	i += 1
+	
+dont need gaps since we are only using samples with both ITS and chloroplast	
 '''
 
 combined_records = []

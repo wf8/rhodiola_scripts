@@ -60,14 +60,14 @@ SeqIO.write(final_records, "trnL-trnF.fasta", "fasta")
 # final trnL-trnL-trnF matrix 957 positions long
 # final trnS-trnG 692 long
 i = 0
-gap1 = ''
+gapLF = ''
 while i<957:
-	gap1 = gap1 + '-'
+	gapLF = gapLF + '-'
 	i += 1
 i = 0
-gap2 = ''
+gapSG = ''
 while i<692:
-	gap2 = gap2 + '-'
+	gapSG = gapSG + '-'
 	i += 1
 
 handle = open("trnL-trnL-trnF_final_matrix.fas", "rU")
@@ -85,7 +85,7 @@ for LLF_record in trnLtrnLtrnF_records:
 			found = True
 			break
 	if not found:
-		final_records.append(SeqRecord(LLF_record.seq + gap2, id=LLF_record.id.strip(), description=''))
+		final_records.append(SeqRecord(LLF_record.seq + gapSG, id=LLF_record.id.strip(), description=''))
 		
 for S_record in trnStrnG_records:
 	found = False
@@ -94,7 +94,7 @@ for S_record in trnStrnG_records:
 			found = True
 			break
 	if not found:
-		final_records.append(SeqRecord(gap1 + S_record.seq, id=S_record.id.strip(), description=''))
+		final_records.append(SeqRecord(gapLF + S_record.seq, id=S_record.id.strip(), description=''))
 
 # write fasta file
 SeqIO.write(final_records, "chloroplast.fasta", "fasta")
